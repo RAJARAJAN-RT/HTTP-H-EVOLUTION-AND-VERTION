@@ -1,4 +1,4 @@
-# HTTP-EVOLUTION-AND-VERTION
+# HTTP-EVOLUTION-AND-VERSION
 Invention of the World Wide Web
 In 1989, while he was working at CERN, Tim Berners-Lee wrote a proposal to build a hypertext system over the Internet. Initially calling it the Mesh, it was later renamed to World Wide Web during its implementation in 1990. Built over the existing TCP and IP protocols, it consisted of 4 building blocks:
 
@@ -14,14 +14,17 @@ HTTP/0.9 – The one-line protocol
 The initial version of HTTP had no version number; it has been later called 0.9 to differentiate it from the later versions. HTTP/0.9 is extremely simple: requests consist of a single line and start with the only possible method GET followed by the path to the resource (not the URL as both the protocol, server, and port are unnecessary once connected to the server).
 
 GET /mypage.html
+
 The response is extremely simple too: it only consisted of the file itself.
 
 <HTML>
 A very simple HTML page
 </HTML>
+
 Unlike subsequent evolutions, there were no HTTP headers, meaning that only HTML files could be transmitted, but no other type of documents. There were no status or error codes: in case of a problem, a specific HTML file was sent back with the description of the problem contained in it, for human consumption.
 
 HTTP/1.0 – Building extensibility
+
 HTTP/0.9 was very limited and both browsers and servers quickly extended it to be more versatile:
 
 Versioning information is now sent within each request (HTTP/1.0 is appended to the GET line)
@@ -41,6 +44,7 @@ Content-Type: text/html
 A page with an image
   <IMG SRC="/myimage.gif">
 </HTML>
+  
 Followed by a second connection and request to fetch the image (followed by a response to that request):
 
 GET /myimage.gif HTTP/1.0
@@ -51,9 +55,11 @@ Date: Tue, 15 Nov 1994 08:12:32 GMT
 Server: CERN/3.0 libwww/2.17
 Content-Type: text/gif
 (image content)
+  
 These novelties have not been introduced as concerted effort, but as a try-and-see approach over the 1991-1995 period: a server and a browser added one feature and it saw if it got traction. A lot of interoperability problems were common. In November 1996, in order to solve these annoyances, an informational document describing the common practices has been published, RFC 1945. This is the definition of HTTP/1.0 and it is notable that, in the narrow sense of the term, it isn't an official standard.
 
 HTTP/1.1 – The standardized protocol
+  
 In parallel to the somewhat chaotic use of the diverse implementations of HTTP/1.0, and since 1995, well before the publication of HTTP/1.0 document the next year, proper standardization was in progress. The first standardized version of HTTP, HTTP/1.1 was published in early 1997, only a few months after HTTP/1.0.
 
 HTTP/1.1 clarified ambiguities and introduced numerous improvements:
@@ -72,7 +78,6 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
-Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header
 
 200 OK
 Connection: Keep-Alive
@@ -94,7 +99,7 @@ User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:50.0) Gecko/20100101
 Accept: */*
 Accept-Language: en-US,en;q=0.5
 Accept-Encoding: gzip, deflate, br
-Referer: https://developer.mozilla.org/en-US/docs/Glossary/Simple_header
+
 
 200 OK
 Age: 9578461
@@ -132,6 +137,7 @@ HTTP is independent of the security model of the Web, the same-origin policy. In
 In addition to these large extensions, numerous other headers have been added, sometimes experimentally only. Notable headers are Do Not Track (DNT) header to control privacy, X-Frame-Options, or Upgrade-Insecure-Requests but many more exist.
 
 HTTP/2 – A protocol for greater performance
+  
 Over the years, Web pages have become much more complex, even becoming applications in their own right. The amount of visual media displayed, the volume and size of scripts adding interactivity, has also increased: much more data is transmitted over significantly more HTTP requests. HTTP/1.1 connections need requests sent in the correct order. Theoretically, several parallel connections could be used (typically between 5 and 8), bringing considerable overhead and complexity. For example, HTTP pipelining has emerged as a resource burden in Web development.
 
 In the first half of the 2010s, Google demonstrated an alternative way of exchanging data between client and server, by implementing an experimental protocol SPDY. This amassed interest from developers working on both browsers and servers. Defining an increase in responsiveness, and solving the problem of duplication of data transmitted, SPDY served as the foundations of the HTTP/2 protocol.
@@ -147,6 +153,7 @@ Officially standardized, in May 2015, HTTP/2 has had much success. By July 2016,
 This rapid adoption rate was likely as HTTP/2 does not require adaptation of Web sites and applications: using HTTP/1.1 or HTTP/2 is transparent for them. Having an up-to-date server communicating with a recent browser is enough to enable its use: only a limited set of groups were needed to trigger adoption, and as legacy browser and server versions are renewed, usage has naturally increased, without further Web developer efforts.
 
 Post-HTTP/2 evolution
+  
 HTTP didn't stop evolving upon the release of HTTP/2. Like with HTTP/1.x previously, HTTP's extensibility is still being used to add new features. Notably, we can cite new extensions of the HTTP protocol appearing in 2016:
 
 Support of Alt-Svc allows the dissociation of the identification and the location of a given resource, allowing for a smarter CDN caching mechanism.
